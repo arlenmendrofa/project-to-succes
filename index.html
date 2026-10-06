@@ -386,6 +386,12 @@
         background: linear-gradient(135deg, rgba(124, 58, 237, 0.35), rgba(56, 189, 248, 0.2));
       }
 
+      .project-thumb img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+      }
+
       .project-body {
         padding: 1.3rem 1.3rem 1.5rem;
       }
@@ -631,38 +637,12 @@
           <div class="section-head">
             <h2>Proyek Pilihan</h2>
             <p>
-              Contoh jenis proyek yang dapat ditampilkan di sini. Ganti setiap kartu dengan
-              proyek nyata Anda sebelum menjadikannya portofolio final.
+              Karya yang sudah dipublikasikan akan tampil di sini.
             </p>
           </div>
 
           <div class="project-grid">
-            <article class="project-card">
-              <div class="project-thumb">01</div>
-              <div class="project-body">
-                <h3>Portfolio Pribadi</h3>
-                <p>Website untuk menampilkan biodata, pengalaman, serta karya terbaik secara ringkas dan modern.</p>
-                <span class="tag">Portfolio</span>
-              </div>
-            </article>
-
-            <article class="project-card">
-              <div class="project-thumb">02</div>
-              <div class="project-body">
-                <h3>Landing Page Bisnis</h3>
-                <p>Website satu halaman untuk menjelaskan layanan, keunggulan, dan ajakan bertindak.</p>
-                <span class="tag">Business</span>
-              </div>
-            </article>
-
-            <article class="project-card">
-              <div class="project-thumb">03</div>
-              <div class="project-body">
-                <h3>Branding Digital</h3>
-                <p>Konsep online yang memperkuat identitas brand dan memudahkan calon pelanggan mengenal Anda.</p>
-                <span class="tag">Brand</span>
-              </div>
-            </article>
+            <p id="project-status" role="status" aria-live="polite">Memuat proyek...</p>
           </div>
         </div>
       </section>
@@ -688,8 +668,9 @@
     <footer>
       <div class="container footer-inner">
         <div>© 2026 Project to succes by @Len</div>
-        <div>Made with passion</div>
+        <div><a href="./admin.html">Masuk admin</a> · Made with passion</div>
       </div>
     </footer>
+    <script type="module" src="./projects.js"></script>
   </body>
 </html>

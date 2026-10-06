@@ -1,0 +1,59 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isAdmin() {
+      return request.auth != null
+        && request.auth.token.email_verified == true
+        && request.auth.token.email == "mendrofaarlen5@gmail.com";
+    }
+
+    function validProject(data) {
+      return data.keys().hasAll([
+          "title",
+          "category",
+          "description",
+          "imageUrl",
+          "link",
+          "published",
+          "createdAt",
+          "updatedAt"
+        ])
+        && data.keys().hasOnly([
+          "title",
+          "category",
+          "description",
+          "imageUrl",
+          "link",
+          "published",
+          "createdAt",
+          "updatedAt"
+        ])
+        && data.title is string
+        && data.title.size() > 0
+        && data.title.size() <= 120
+        && data.category is string
+        && data.category.size() > 0
+        && data.category.size() <= 60
+        && data.description is string
+        && data.description.size() > 0
+        && data.description.size() <= 1000
+        && data.imageUrl is string
+        && data.imageUrl.size() <= 2048
+        && data.link is string
+        && data.link.size() <= 2048
+        && data.published is bool
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    match /projects/{projectId} {
+      allow read: if isAdmin() || resource.data.published == true;
+      allow create: if isAdmin() && validProject(request.resource.data);
+      allow update: if isAdmin()
+        && validProject(request.resource.data)
+        && request.resource.data.createdAt == resource.data.createdAt;
+      allow delete: if isAdmin();
+    }
+  }
+}
