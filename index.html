@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Selamat datang di website saya.">
+    <meta name="theme-color" content="#f5f7ff">
+    <title>Beranda | Website Saya</title>
+    <style>
+        :root {
+            color-scheme: light;
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            color: #172033;
+            background: #f5f7ff;
+            font-synthesis: none;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-width: 320px;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .site-header,
+        main,
+        .site-footer {
+            width: min(100% - 2.5rem, 1100px);
+            margin-inline: auto;
+        }
+
+        .site-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 84px;
+        }
+
+        .brand {
+            color: #263b80;
+            font-size: 1.1rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            text-decoration: none;
+        }
+
+        nav a {
+            padding: 0.6rem 0.9rem;
+            border-radius: 999px;
+            color: #4e5870;
+            font-size: 0.95rem;
+            text-decoration: none;
+        }
+
+        nav a:hover,
+        nav a:focus-visible {
+            background: #e8ecff;
+            color: #263b80;
+        }
+
+        .hero {
+            display: grid;
+            min-height: min(650px, calc(100vh - 140px));
+            place-items: center;
+            padding-block: 4rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 720px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            margin: 0 0 1rem;
+            padding: 0.45rem 0.8rem;
+            border: 1px solid #dce2ff;
+            border-radius: 999px;
+            background: #fff;
+            color: #4055a4;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2.8rem, 8vw, 5.5rem);
+            letter-spacing: -0.075em;
+            line-height: 1.03;
+        }
+
+        h1 span {
+            color: #526be0;
+        }
+
+        .intro {
+            max-width: 570px;
+            margin: 1.5rem auto 2rem;
+            color: #626c83;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            line-height: 1.8;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 0.9rem 1.35rem;
+            border: 0;
+            border-radius: 12px;
+            background: #405bd1;
+            box-shadow: 0 10px 24px rgb(64 91 209 / 20%);
+            color: #fff;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background-color 160ms ease, transform 160ms ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            background: #3049b6;
+        }
+
+        .button:focus-visible,
+        a:focus-visible {
+            outline: 3px solid #f3a84b;
+            outline-offset: 4px;
+        }
+
+        .about {
+            max-width: 720px;
+            margin: 0 auto 5rem;
+            padding: 2rem;
+            border: 1px solid #e5e9f5;
+            border-radius: 20px;
+            background: #fff;
+            text-align: center;
+        }
+
+        .about h2 {
+            margin: 0 0 0.7rem;
+            font-size: 1.5rem;
+            letter-spacing: -0.04em;
+        }
+
+        .about p {
+            margin: 0;
+            color: #626c83;
+            line-height: 1.75;
+        }
+
+        .site-footer {
+            padding-block: 1.5rem;
+            border-top: 1px solid #e1e5f0;
+            color: #737d92;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .site-footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 520px) {
+            .site-header,
+            main,
+            .site-footer {
+                width: min(100% - 2rem, 1100px);
+            }
+
+            .site-header {
+                min-height: 72px;
+            }
+
+            nav a {
+                padding-inline: 0.65rem;
+                font-size: 0.88rem;
+            }
+
+            .hero {
+                min-height: 70vh;
+            }
+
+            .about {
+                margin-bottom: 3rem;
+                padding: 1.5rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="#beranda">Website Saya</a>
+        <nav aria-label="Navigasi utama">
+            <a href="#tentang">Tentang</a>
+        </nav>
+    </header>
+
+    <main id="beranda">
+        <section class="hero" aria-labelledby="judul-utama">
+            <div class="hero-content">
+                <p class="eyebrow">Senang bertemu dengan Anda</p>
+                <h1 id="judul-utama">Halo, <span>dunia!</span></h1>
+                <p class="intro">
+                    Selamat datang di website saya. Ini adalah langkah pertama
+                    untuk berbagi cerita, karya, dan hal-hal menarik lainnya.
+                </p>
+                <a class="button" href="#tentang">Kenali website ini</a>
+            </div>
+        </section>
+
+        <section class="about" id="tentang" aria-labelledby="judul-tentang">
+            <h2 id="judul-tentang">Tentang website ini</h2>
+            <p>
+                Website ini sedang dimulai. Nantikan berbagai informasi dan
+                pembaruan yang akan hadir di sini.
+            </p>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Website Saya. Dibuat dengan sepenuh hati.</p>
+    </footer>
+</body>
+</html>
