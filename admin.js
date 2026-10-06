@@ -1,8 +1,9 @@
 import { ADMIN_EMAIL, auth, db } from "./firebase.js";
 import {
   GoogleAuthProvider,
+  getRedirectResult,
   onAuthStateChanged,
-  signInWithPopup,
+  signInWithRedirect,
   signOut,
 } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
 import {
@@ -179,7 +180,7 @@ signInButton.addEventListener("click", async () => {
   signInButton.disabled = true;
   showStatus(loginStatus, "Menghubungkan ke Google...");
   try {
-    await signInWithPopup(auth, provider);
+    await signInWithRedirect(auth, provider);
   } catch (error) {
     console.error("Google sign-in gagal:", error);
     showStatus(loginStatus, "Login gagal. Coba lagi atau periksa konfigurasi domain Firebase.", true);
@@ -243,6 +244,10 @@ form.addEventListener("submit", async (event) => {
 });
 
 cancelEditButton.addEventListener("click", resetForm);
+getRedirectResult(auth).catch((error) => {
+  console.error("Hasil Google sign-in gagal diproses:", error);
+  showStatus(loginStatus, "Login Google gagal diproses. Coba masuk kembali.", true);
+});
 onAuthStateChanged(auth, (user) => {
   void handleAuthState(user).catch((error) => {
     console.error("Gagal memeriksa status login:", error);

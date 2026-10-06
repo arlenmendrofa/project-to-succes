@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://arlenmendrofa.github.io/project-to-succes/sitemap.xml
+Sitemap: https://project-to-succes-by-len.web.app/sitemap.xml
